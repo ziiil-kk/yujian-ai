@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>舆见 AI · 使用说明</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px 20px 80px;
+    font: 15px/1.75 -apple-system, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    color: #1a1d23; background: #f5f6f8;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 24px; margin: 0 0 6px; letter-spacing: -0.2px; }
+  .sub { color: #6b7280; font-size: 13px; margin-bottom: 32px; }
+  .card {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+    padding: 24px 26px; margin-bottom: 18px;
+  }
+  h2 {
+    font-size: 16px; margin: 0 0 14px; padding-bottom: 10px;
+    border-bottom: 1px solid #f0f1f3;
+  }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px;
+    border-radius: 999px; margin-left: 8px; vertical-align: 2px;
+  }
+  .tag.easy { background: #e8f5ec; color: #17703a; }
+  .tag.mid { background: #eaf0fd; color: #1d4ed8; }
+  .tag.perm { background: #fdf0e6; color: #a3541a; }
+  ol, ul { margin: 0; padding-left: 22px; }
+  li { margin-bottom: 7px; }
+  code, .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px; background: #f2f3f5; padding: 2px 6px; border-radius: 5px;
+  }
+  .url {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 14px; background: #f7f8fa; border: 1px solid #e5e7eb;
+    border-radius: 8px; padding: 12px 14px; margin: 10px 0;
+    word-break: break-all; user-select: all;
+  }
+  .warn { color: #a3541a; }
+  .muted { color: #6b7280; font-size: 13px; }
+  .note {
+    background: #fbfaf5; border-left: 3px solid #e8c377;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0;
+  }
+  .kbd {
+    font-family: ui-monospace, Menlo, monospace; font-size: 12px;
+    border: 1px solid #d5d7db; border-bottom-width: 2px; border-radius: 5px;
+    padding: 1px 6px; background: #fafafa;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>舆见 AI · 怎么分享给别人看</h1>
+  <div class="sub">日常怎么用 · 怎么分享给别人看</div>
+
+  <div class="card" style="border-color:#cfe3d3;background:#fcfdfc">
+    <h2>日常使用：就两步</h2>
+    <ol>
+      <li>双击 <span class="mono">演示模式.command</span>
+          <span class="muted">（第一次要花 15 秒构建，之后都是秒开）</span></li>
+      <li>浏览器会自动打开。没自动跳的话，手动打开 <span class="mono">http://localhost:3000</span></li>
+    </ol>
+    <p class="muted">用完关掉那个终端窗口就行——关掉窗口等于关闭服务。</p>
+    <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:13px">
+      <tr style="text-align:left;color:#6b7280">
+        <th style="padding:0 0 8px;font-weight:500">我想……</th>
+        <th style="padding:0 0 8px;font-weight:500">双击这个文件</th>
+      </tr>
+      <tr>
+        <td style="padding:8px 0;border-top:1px solid #eef0f2">打开产品自己看</td>
+        <td style="padding:8px 0;border-top:1px solid #eef0f2"><span class="mono">演示模式.command</span></td>
+      </tr>
+      <tr>
+        <td style="padding:8px 0;border-top:1px solid #eef0f2">分享给别人看</td>
+        <td style="padding:8px 0;border-top:1px solid #eef0f2"><span class="mono">share.command</span></td>
+      </tr>
+      <tr>
+        <td style="padding:8px 0;border-top:1px solid #eef0f2">关掉服务</td>
+        <td style="padding:8px 0;border-top:1px solid #eef0f2">关掉终端窗口，或双击 <span class="mono">停止服务.command</span></td>
+      </tr>
+      <tr>
+        <td style="padding:8px 0;border-top:1px solid #eef0f2">自己改了代码想看效果</td>
+        <td style="padding:8px 0;border-top:1px solid #eef0f2"><span class="mono">start.command</span>（开发模式，改动立刻生效）</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>第 1 种：对方和你连同一个 Wi-Fi<span class="tag easy">零设置</span></h2>
+    <p>让他用手机浏览器打开下面这个地址：</p>
+    <div class="url">http://172.20.10.6:3000</div>
+    <ul>
+      <li>注意是 <b>http</b>，不是 https</li>
+      <li>打不开的话，先关掉电脑上的 VPN 再试 —— VPN 最容易挡住局域网访问</li>
+      <li>这个地址换网络后会变。不确定就运行一次 <span class="mono">share.command</span>，它会在开头打印出当前正确的地址</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>第 2 种：对方不在你旁边<span class="tag mid">别的城市也能看</span></h2>
+    <ol>
+      <li>打开「访达」，进到 <span class="mono">yujian-ai</span> 文件夹</li>
+      <li>双击 <span class="mono">share.command</span></li>
+      <li>会弹出一个终端窗口，自己跑十几秒</li>
+      <li>窗口里出现一行 <span class="mono">https://</span> 开头的地址，这就是分享链接</li>
+      <li>这行地址会自动复制到剪贴板，直接粘贴发给对方就行</li>
+    </ol>
+    <div class="note">
+      <b>你会拿到哪个网址？</b>以窗口里打印出来的那条为准，不用自己猜。<br />
+      脚本按顺序试三个通道，谁先通用谁：
+      <ul style="margin-top:8px">
+        <li>通道 1「固定链接通道」通了 → <span class="mono">https://yujian-ai-demo.serveo.net</span><br />
+            <span class="muted">以后每次运行都是这个地址，可以存下来反复用</span></li>
+        <li>通道 2、3 通了 → 随机地址，比如 <span class="mono">https://abc123.lhr.life</span><br />
+            <span class="muted">每次都不一样，窗口关掉就失效</span></li>
+      </ul>
+    </div>
+    <p class="warn">
+      ⚠️ 分享期间：电脑别合盖睡眠，这个窗口别关<br />
+      ⚠️ 结束分享：在这个窗口里按 <span class="kbd">Control</span> + <span class="kbd">C</span>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>如果双击 share.command 没反应</h2>
+    <p>说明这台电脑上 <span class="mono">.command</span> 文件和「终端」的关联出了问题，不影响使用。换成这个办法，效果完全一样：</p>
+    <ol>
+      <li>按 <span class="kbd">Command</span> + <span class="kbd">空格</span>，输入「终端」，回车</li>
+      <li>会出现一个能打字的窗口</li>
+      <li>把下面这一整行复制，粘贴进去，按回车：</li>
+    </ol>
+    <div class="url">bash "/Users/nindy/Documents/Codex/2026-09-23/xia/yujian-ai/share.command"</div>
+    <p class="muted">只有一行，别漏开头的 bash。</p>
+    <p class="muted">
+      如果粘贴后按回车没反应、反而出现一个 <span class="mono">&gt;</span> 符号，
+      说明复制时多带了换行。按 <span class="kbd">Control</span> + <span class="kbd">C</span> 退出，重新复制一次那一行。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>如果提示「没有正确的访问权限」</h2>
+    <p>双击时弹出这个框：</p>
+    <div class="url" style="color:#a3541a">文件「share.command」无法执行，因为你没有正确的访问权限。</div>
+    <p>原因是这个文件丢了「可执行」标记。macOS 对没有这个标记的脚本一律拒绝运行，属于系统安全设计，不是文件坏了。</p>
+    <p><b>修复办法（任选一个）：</b></p>
+    <ol>
+      <li>双击一次 <span class="mono">演示模式.command</span> 或 <span class="mono">start.command</span>
+          —— 这两个脚本里已经内置了自动修复，跑一次就会把其它脚本的权限补回来</li>
+      <li>或者在终端里粘贴这一行回车：
+        <div class="url">chmod +x "/Users/nindy/Documents/Codex/2026-09-23/xia/yujian-ai/share.command"</div>
+      </li>
+    </ol>
+    <p class="muted">修完如果访达里看着还是老样子，把访达窗口关掉重开一次刷新显示。</p>
+  </div>
+
+  <div class="card">
+    <h2>第 3 种：想要一个永久链接<span class="tag perm">面试时直接发</span></h2>
+    <p>上面两种都是临时的：电脑一关，链接就失效。</p>
+    <p>如果要在简历或面试里放一个随时能打开的网站，需要把项目部署到公网。
+       这个项目的核心逻辑不依赖服务器，所以是做得出来的。</p>
+  </div>
+
+  <p class="muted" style="text-align:center;margin-top:28px">
+    这个页面保存在 <span class="mono">public/share-guide.html</span>，只要本地服务在跑，随时可以打开。
+  </p>
+</div>
+</body>
+</html>
