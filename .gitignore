@@ -1,0 +1,23 @@
+# 依赖与构建产物
+node_modules/
+.next/
+.next-dev/
+.next-verify/
+.next-prod/
+out/
+bin/
+work/
+
+# 本地环境与缓存
+.env
+.env.local
+*.log
+*.tsbuildinfo
+.DS_Store
+
+# 原始截图与导出文件（成品图在 docs/screenshots）
+图/
+*.pdf
+
+# 本地个人说明
+分享给别人-看这里.txt
